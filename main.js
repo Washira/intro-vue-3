@@ -15,5 +15,16 @@ const app = Vue.createApp({
       ],
       sizes: ['S', 'M', 'L', 'XL', 'XXL']
     }
+  },
+  methods: {
+    addToCart() {
+      this.cart += 1
+    },
+    updateImage(variantImage) {
+      this.image = variantImage
+    },
+    updateVariant(index) {
+      this.selectedVariant = index
+    }
   }
 })      
