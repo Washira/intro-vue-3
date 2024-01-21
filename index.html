@@ -27,6 +27,7 @@
             </ul>
             <div v-for="variant in variants" :key="variant.id">{{ variant.color }}</div>
             <div v-for="size in sizes" :key="size">{{ size }}</div>
+            <button class="button" v-on:click="cart + 1">Add to cart</button>
           </div>
         </div>
       </div>
