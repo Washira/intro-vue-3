@@ -9,6 +9,20 @@
     <script src="https://unpkg.com/vue@3.0.0-beta.12/dist/vue.global.js"></script>
   </head>
   <body>
+    <!-- 
+      1. Create a new Vue instance with the Vue function
+      2. Pass in an object with a property called data
+      3. The data property is an object with a property called product
+      4. The value of product is "Socks"
+
+      v-on:click --> @click
+      v-if --> v-if
+      v-else-if --> v-else-if
+      v-else --> v-else
+      v-for --> v-for
+      v-bind --> :key
+    -->
+    
     <div id="app">
       <div class="nav-bar"></div>
 
@@ -17,7 +31,7 @@
       <div class="product-display">
         <div class="product-container">
           <div class="product-image">
-            <img v-bind:src="image" >
+            <img :src="image" >
           </div>
           <div class="product-info">
             <h1>{{ product }}</h1>
