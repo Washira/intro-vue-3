@@ -16,12 +16,12 @@
       4. The value of product is "Socks"
 
       v-bind: binds an attribute to an expression
-      @click: shorthand for v-on:click
+      v-on:click -> @click
       v-if
       v-else-if
       v-else
       v-for
-      v-bind > :key
+      v-bind -> :key
     -->
     
     <div id="app">
@@ -42,9 +42,23 @@
             <ul>
               <li v-for="detail in details">{{ detail }}</li>
             </ul>
-            <div v-for="variant in variants" :key="variant.id" @mouseover="updateImage(variant.image)">{{ variant.color }}</div>
+            <div
+              v-for="variant in variants"
+              :key="variant.id"
+              @mouseover="updateImage(variant.image)"
+              class="color-circle"
+              :style="{ backgroundColor: variant.color }"
+            >
+            </div>
             <!-- <div v-for="size in sizes" :key="size">{{ size }}</div> -->
-            <button class="button" @click="addToCart">Add to cart</button>
+            <button
+              class="button"
+              :class="{ disabledButton: !inStock }"
+              @click="addToCart"
+              :disabled="!inStock"
+            >
+              Add to cart
+            </button>
           </div>
         </div>
       </div>
