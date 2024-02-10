@@ -9,21 +9,7 @@
     <script src="https://unpkg.com/vue@3.0.0-beta.12/dist/vue.global.js"></script>
   </head>
   <body>
-    <!-- 
-      1. Create a new Vue instance with the Vue function
-      2. Pass in an object with a property called data
-      3. The data property is an object with a property called product
-      4. The value of product is "Socks"
-
-      v-bind: binds an attribute to an expression
-      v-on:click -> @click
-      v-if
-      v-else-if
-      v-else
-      v-for
-      v-bind -> :key
-    -->
-    
+    <!-- App -->
     <div id="app">
       <div class="nav-bar"></div>
 
@@ -35,7 +21,8 @@
             <img :src="image" >
           </div>
           <div class="product-info">
-            <h1>{{ product }}</h1>
+            <h1>{{ title }}</h1>
+            <p>{{ sale }}</p>
             <p v-if="inventory > 10">In Stock</p>
             <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out!</p>
             <p v-else>Out of Stock</p>
@@ -43,9 +30,9 @@
               <li v-for="detail in details">{{ detail }}</li>
             </ul>
             <div
-              v-for="variant in variants"
+              v-for="(variant, index) in variants"
               :key="variant.id"
-              @mouseover="updateImage(variant.image)"
+              @mouseover="updateVariant(index)"
               class="color-circle"
               :style="{ backgroundColor: variant.color }"
             >
@@ -54,8 +41,8 @@
             <button
               class="button"
               :class="{ disabledButton: !inStock }"
-              @click="addToCart"
               :disabled="!inStock"
+              @click="addToCart"
             >
               Add to cart
             </button>
@@ -71,5 +58,39 @@
     <script>
       const mountedApp = app.mount('#app')
     </script>
+
+    <!-- 
+      1. Create a new Vue instance with the Vue function
+      2. Pass in an object with a property called data
+      3. The data property is an object with a property called product
+      4. The value of product is "Socks"
+
+      v-bind: binds an attribute to an expression
+      v-bind key -> :key
+      v-bind style -> :style
+      v-bind class -> :class
+      v-bind disabled -> :disabled
+      v-bind href -> :href
+      v-bind src -> :src
+      v-bind alt -> :alt
+      v-bind title -> :title
+      v-bind id -> :id
+      v-bind type -> :type
+      v-bind value -> :value
+      v-bind name -> :name
+      v-bind placeholder -> :placeholder
+      v-on:click -> @click
+      v-on:mouseover -> @mouseover
+      v-if
+      v-else-if
+      v-else
+      v-for
+      v-model
+      v-show
+      v-pre
+      v-cloak
+      v-once
+
+    -->
   </body>
 </html>
